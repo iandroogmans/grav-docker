@@ -27,8 +27,6 @@ RUN curl -o grav.tar.gz -SL https://github.com/getgrav/grav/archive/${GRAV_VERSI
 	&& /var/www/html/bin/grav install \
 	&& bin/gpm install login form email admin
 
-RUN chown -R www-data:www-data /var/www/html
-
 COPY docker-entrypoint.sh /entrypoint.sh
 RUN chmod +x /entrypoint.sh
 ENTRYPOINT ["/entrypoint.sh"]
