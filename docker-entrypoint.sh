@@ -17,7 +17,7 @@ if ! [ -e user/config/system.yaml ]; then
   rsync -a /tmp/grav-$GRAV_VERSION/user/ /var/www/html/user
 fi
 
-chown -R www-data:www-data HTML_ROOT;
+chown -R www-data:www-data ${HTML_ROOT};
 
 echo >&2 "Complete! Grav has been successfully installed"
 
