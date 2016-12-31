@@ -1,0 +1,9 @@
+version: '2.1'
+services:
+
+  grav:
+    image: grav
+    volumes:
+      - ./user:/var/www/html/user
+    ports:
+      - 80:80
