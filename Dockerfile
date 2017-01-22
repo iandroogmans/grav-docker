@@ -19,13 +19,15 @@ RUN { \
 		echo 'opcache.enable_cli=1'; \
 	} > /usr/local/etc/php/conf.d/opcache-recommended.ini
 
-ENV GRAV_VERSION 1.1.12
+ENV GRAV_VERSION 1.1.14
 RUN curl -o grav.tar.gz -SL https://github.com/getgrav/grav/archive/${GRAV_VERSION}.tar.gz \
 	&& mkdir -p /tmp/grav \
 	&& tar -xzf grav.tar.gz -C /tmp \
 	&& rsync -a /tmp/grav-${GRAV_VERSION}/ /var/www/html --exclude user \
 	&& /var/www/html/bin/grav install \
 	&& bin/gpm install login form email admin
+
+COPY config/php.ini /usr/local/etc/php/conf.d/
 
 COPY docker-entrypoint.sh /entrypoint.sh
 RUN chmod +x /entrypoint.sh
