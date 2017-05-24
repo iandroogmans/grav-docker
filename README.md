@@ -1,6 +1,9 @@
 # grav-docker
 Grav docker implementation
 
+## Versioning
+This repository follows the official versioning of grav, so to install grav 1.2.0 you can use **webideas/grav-docker-apache:1.2.0** or allways install the up to date version with **latest** tag.
+
 ## Usage
 
 1. Build the grav docker image: `docker build -t grav .`
